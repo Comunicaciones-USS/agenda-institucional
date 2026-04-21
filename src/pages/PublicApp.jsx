@@ -41,7 +41,7 @@ function useEvents({ sede }) {
   return { events, loading, error, reload, lastUpdate };
 }
 
-export default function PublicApp() {
+export default function PublicApp({ goToAdmin }) {
   const [view, setView] = useState(() => {
     const hash = window.location.hash;
     if (hash === '#buscar') return 'search';
@@ -117,6 +117,7 @@ export default function PublicApp() {
         onOpen={(id) => setSelectedEventId(id)}
         loading={loading}
         error={error}
+        goToAdmin={goToAdmin}
       />
     );
     return (
@@ -132,6 +133,7 @@ export default function PublicApp() {
         onOpen={(id) => setSelectedEventId(id)}
         loading={loading}
         error={error}
+        goToAdmin={goToAdmin}
       />
     );
   };
@@ -156,15 +158,15 @@ export default function PublicApp() {
       {view === 'home' && renderHome()}
       {view === 'search' && (
         <>
-          {desktop && <DesktopTop sede={sede} setSede={setSede} hideSearch />}
-          {!desktop && <MobileTopSimple title="Buscar" />}
+          {desktop && <DesktopTop sede={sede} setSede={setSede} hideSearch goToAdmin={goToAdmin} />}
+          {!desktop && <MobileTopSimple title="Buscar" goToAdmin={goToAdmin} />}
           {renderSearch()}
         </>
       )}
       {view === 'mine' && (
         <>
-          {desktop && <DesktopTop sede={sede} setSede={setSede} hideSearch />}
-          {!desktop && <MobileTopSimple title="Mis actividades" />}
+          {desktop && <DesktopTop sede={sede} setSede={setSede} hideSearch goToAdmin={goToAdmin} />}
+          {!desktop && <MobileTopSimple title="Mis actividades" goToAdmin={goToAdmin} />}
           {renderMine()}
         </>
       )}
@@ -209,11 +211,12 @@ export default function PublicApp() {
   );
 }
 
-function MobileTopSimple({ title }) {
+function MobileTopSimple({ title, goToAdmin }) {
   return (
     <div className="pub-top">
       <div className="pub-top-row">
         <div className="pub-brand">Agenda<span> USS</span></div>
+        {goToAdmin && <button className="admin-btn" onClick={goToAdmin} title="Ir al panel admin">Admin</button>}
       </div>
       <h1 style={{ fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--uss-navy)', margin: '6px 0 12px', fontWeight: 600 }}>
         {title}
@@ -222,7 +225,7 @@ function MobileTopSimple({ title }) {
   );
 }
 
-function DesktopTop({ sede, setSede, hideSearch }) {
+function DesktopTop({ sede, setSede, hideSearch, goToAdmin }) {
   return (
     <div className="pub-desk-top">
       <div className="brand">Agenda USS</div>
@@ -232,11 +235,14 @@ function DesktopTop({ sede, setSede, hideSearch }) {
         ))}
       </div>
       {!hideSearch && <input className="search" placeholder="Buscar eventos..." />}
+      {goToAdmin && (
+        <button className="admin-btn desk" onClick={goToAdmin} title="Ir al panel admin">Admin</button>
+      )}
     </div>
   );
 }
 
-function MobileHome({ eventsByDay, selectedDate, setSelectedDate, sede, setSede, onOpen, loading, error }) {
+function MobileHome({ eventsByDay, selectedDate, setSelectedDate, sede, setSede, onOpen, loading, error, goToAdmin }) {
   const ws = weekStart(selectedDate);
   const days = useMemo(() => Array.from({ length: 7 }, (_, i) => addDays(ws, i)), [ws]);
 
@@ -245,7 +251,8 @@ function MobileHome({ eventsByDay, selectedDate, setSelectedDate, sede, setSede,
       <div className="pub-top">
         <div className="pub-top-row">
           <div className="pub-brand">Agenda<span> USS</span></div>
-          <div className="flex gap-8">
+          <div className="flex gap-8" style={{ alignItems: 'center' }}>
+            {goToAdmin && <button className="admin-btn" onClick={goToAdmin} title="Ir al panel admin">Admin</button>}
             <button className="icon-btn" title="Notificaciones"><Icon n="bell" /></button>
             <button className="icon-btn" title="Menú"><Icon n="menu" /></button>
           </div>
@@ -341,7 +348,7 @@ function EventCard({ ev, onClick }) {
   );
 }
 
-function DesktopWeek({ events, selectedDate, setSelectedDate, sede, setSede, onOpen, loading, error }) {
+function DesktopWeek({ events, selectedDate, setSelectedDate, sede, setSede, onOpen, loading, error, goToAdmin }) {
   const ws = weekStart(selectedDate);
   const days = useMemo(() => Array.from({ length: 6 }, (_, i) => addDays(ws, i)), [ws]);
   const todayISO = new Date().toISOString().slice(0, 10);
@@ -360,7 +367,7 @@ function DesktopWeek({ events, selectedDate, setSelectedDate, sede, setSede, onO
 
   return (
     <>
-      <DesktopTop sede={sede} setSede={setSede} />
+      <DesktopTop sede={sede} setSede={setSede} goToAdmin={goToAdmin} />
       <div className="pub-desk-body">
         <div className="week-head">
           <div>

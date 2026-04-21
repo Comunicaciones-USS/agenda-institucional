@@ -915,39 +915,28 @@ button { cursor: pointer; }
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
 
 /* ============================================================
-   Admin toggle (botón en esquina superior derecha de la app pública)
-   Añadido durante migración a React+Vite
+   Admin button — integrado en el header (mobile y desktop)
    ============================================================ */
-.admin-toggle {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  z-index: 100;
+.admin-btn {
   background: rgba(15, 42, 68, 0.92);
   color: #fff;
   border: 1px solid var(--uss-gold, #D4B574);
   border-radius: 999px;
-  padding: 6px 14px;
-  font-family: var(--font-anno, 'Inter', system-ui, sans-serif);
-  font-size: 12px;
+  padding: 5px 12px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.admin-toggle:hover {
-  background: var(--uss-navy, #0F2A44);
-  transform: translateY(-1px);
+.admin-btn:hover { background: var(--uss-navy, #0F2A44); }
+.admin-btn.desk {
+  padding: 6px 14px;
+  font-size: 12px;
+  background: transparent;
+  border-color: var(--uss-gold, #D4B574);
+  color: var(--uss-gold, #D4B574);
 }
-
-/* En pantallas muy pequeñas, esconder un poco el botón sobre la nav inferior */
-@media (max-width: 480px) {
-  .admin-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 5px 12px;
-    font-size: 11px;
-  }
-}
+.admin-btn.desk:hover { background: #ffffff15; }

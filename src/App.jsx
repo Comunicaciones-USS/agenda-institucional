@@ -31,18 +31,7 @@ export default function App() {
       {isAdmin ? (
         <AdminApp onExitToPublic={goToPublic} />
       ) : (
-        <>
-          <PublicApp />
-          {/* Toggle Admin en la esquina superior derecha */}
-          <button
-            onClick={goToAdmin}
-            className="admin-toggle"
-            title="Ir al panel admin"
-            aria-label="Ir al panel admin"
-          >
-            Admin
-          </button>
-        </>
+        <PublicApp goToAdmin={goToAdmin} />
       )}
     </ToastProvider>
   );
