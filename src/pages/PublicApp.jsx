@@ -3,7 +3,7 @@ import Icon from '../components/Icon';
 import { useToast } from '../components/Toast';
 import { DataAPI } from '../lib/data';
 import { addDays, fmtDate, formatRUT, validateEmail, validateRUT, weekStart } from '../lib/utils';
-import { ALL_SEDES, SEDES, USER_TYPES } from '../constants';
+import { ALL_SEDES, ALL_SEDES_KEY, SEDES, USER_TYPES } from '../constants';
 
 // ============================================================
 //  PUBLIC APP — mobile first, wide on desktop
@@ -48,7 +48,7 @@ export default function PublicApp({ goToAdmin }) {
     if (hash === '#mis') return 'mine';
     return 'home';
   });
-  const [sede, setSede] = useState(() => localStorage.getItem('agenda_sede') || 'Santiago');
+  const [sede, setSede] = useState(() => localStorage.getItem('agenda_sede') || ALL_SEDES_KEY);
   const [selectedDate, setSelectedDate] = useState(() => localStorage.getItem('agenda_date') || '2026-04-13');
   const [selectedEventId, setSelectedEventId] = useState(null);
   const [desktop, setDesktop] = useState(window.innerWidth > 900);
@@ -67,7 +67,7 @@ export default function PublicApp({ goToAdmin }) {
   useEffect(() => { localStorage.setItem('agenda_sede', sede); }, [sede]);
   useEffect(() => { localStorage.setItem('agenda_date', selectedDate); }, [selectedDate]);
 
-  const { events, loading, error } = useEvents({ sede: sede === 'Todos' ? null : sede });
+  const { events, loading, error } = useEvents({ sede: sede === ALL_SEDES_KEY ? null : sede });
 
   // Toast cuando llega un nuevo evento en tiempo real
   const prevCountRef = useRef(null);
@@ -258,7 +258,7 @@ function MobileHome({ eventsByDay, selectedDate, setSelectedDate, sede, setSede,
           </div>
         </div>
         <div className="sede-tabs">
-          {SEDES.map((s) => (
+          {ALL_SEDES.map((s) => (
             <button key={s} className={`sede-tab ${sede === s ? 'on' : ''}`} onClick={() => setSede(s)}>{s}</button>
           ))}
         </div>
