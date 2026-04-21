@@ -1,0 +1,21 @@
+{
+  "name": "agenda-uss",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Agenda institucional Universidad San Sebastián — app pública + panel admin con Supabase",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^5.4.10"
+  }
+}
