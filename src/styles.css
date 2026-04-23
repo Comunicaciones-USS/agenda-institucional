@@ -753,6 +753,9 @@ button { cursor: pointer; }
 .admin-content {
   padding: 24px 28px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .metric-grid {
