@@ -229,7 +229,7 @@ function MobileTopSimple({ title, goToAdmin }) {
 function DesktopTop({ sede, setSede, hideSearch, goToAdmin }) {
   return (
     <div className="pub-desk-top">
-      <Logo variant="light" size="lg" />
+      <Logo variant="light" size="lg" withTitle />
       <div className="sedes">
         {ALL_SEDES.map((s) => (
           <button key={s} className={sede === s ? 'on' : ''} onClick={() => setSede(s)}>{s}</button>

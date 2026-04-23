@@ -1,7 +1,7 @@
 /* ============================================================
    Agenda USS — Hi-fi styles
    Paleta USS: azul marino #0F2A44, dorado #D4B574
-   Tipografía: Cormorant Garamond (serif titulos) + Inter (UI/body)
+   Tipografía: Montserrat (global — titulos y UI)
    ============================================================ */
 
 :root {
@@ -36,8 +36,8 @@
   --r-lg: 14px;
   --r-xl: 20px;
 
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --serif: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --sans: 'Montserrat', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -164,7 +164,7 @@ button { cursor: pointer; }
   transition: all 0.15s;
 }
 .day-chip .dow { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; }
-.day-chip .dom { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); margin-top: 2px; }
+.day-chip .dom { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 2px; }
 .day-chip .count { font-size: 10px; color: var(--ink-4); margin-top: 2px; }
 .day-chip.on {
   background: var(--uss-navy);
@@ -360,7 +360,7 @@ button { cursor: pointer; }
 .detail-body h2 {
   font-family: var(--serif);
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--uss-navy);
   margin: 6px 0 12px;
   line-height: 1.15;
@@ -514,7 +514,7 @@ button { cursor: pointer; }
   margin-bottom: 28px;
 }
 .splash h1 {
-  font-family: var(--serif); font-size: 64px; font-weight: 600;
+  font-family: var(--serif); font-size: 64px; font-weight: 800;
   margin: 0; line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -526,6 +526,31 @@ button { cursor: pointer; }
   margin-top: 10px;
   font-weight: 300;
 }
+
+/* ============ Logo lockup ============ */
+.logo-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+.logo-divider {
+  display: inline-block;
+  width: 1.5px;
+  height: var(--divider-h, 40px);
+  background: currentColor;
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+.logo-title {
+  font-family: var(--sans);
+  font-size: var(--title-size, 17px);
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.logo-title strong { font-weight: 700; }
+.logo-lockup--light { color: #fff; }
+.logo-lockup--dark  { color: var(--uss-navy); }
 
 /* ============ Desktop public (wide) ============ */
 .pub-desk-top {
@@ -574,7 +599,7 @@ button { cursor: pointer; }
   font-size: 42px;
   color: var(--uss-navy);
   margin: 0;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.015em;
 }
 
@@ -605,7 +630,7 @@ button { cursor: pointer; }
   font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
   color: var(--ink-3); font-weight: 600;
 }
-.week-col-head .dom { font-family: var(--serif); font-size: 22px; font-weight: 600; }
+.week-col-head .dom { font-family: var(--serif); font-size: 22px; font-weight: 700; }
 .week-col-head .cnt { font-size: 11px; color: var(--ink-3); margin-top: 2px; opacity: 0.8; }
 .week-col-head.today .cnt { color: #ffffffaa; }
 .week-col-body { padding: 8px; flex: 1; }
@@ -703,7 +728,7 @@ button { cursor: pointer; }
   font-size: 28px;
   color: var(--uss-navy);
   margin: 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 .admin-topbar .sub { color: var(--ink-3); font-size: 13px; margin-top: 2px; }
 .admin-content {
@@ -725,7 +750,7 @@ button { cursor: pointer; }
 }
 .metric-card .val {
   font-family: var(--serif);
-  font-size: 42px; font-weight: 600;
+  font-size: 42px; font-weight: 800;
   color: var(--uss-navy);
   line-height: 1;
 }
@@ -742,7 +767,7 @@ button { cursor: pointer; }
   border-radius: var(--r-lg);
   padding: 20px;
 }
-.card h3 { font-family: var(--serif); font-size: 20px; color: var(--uss-navy); margin: 0 0 14px; font-weight: 600; }
+.card h3 { font-family: var(--serif); font-size: 20px; color: var(--uss-navy); margin: 0 0 14px; font-weight: 700; }
 
 .grid-2 {
   display: grid;
@@ -849,7 +874,7 @@ button { cursor: pointer; }
   display: flex; flex-direction: column; justify-content: center;
 }
 .login-form-inner { width: 100%; max-width: 340px; margin: 0 auto; }
-.login-form h2 { font-family: var(--serif); font-size: 32px; color: var(--uss-navy); margin: 0 0 6px; font-weight: 600; }
+.login-form h2 { font-family: var(--serif); font-size: 32px; color: var(--uss-navy); margin: 0 0 6px; font-weight: 700; }
 .login-form p { color: var(--ink-3); margin: 0 0 24px; font-size: 14px; }
 
 /* Config tags list */
