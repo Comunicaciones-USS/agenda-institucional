@@ -824,8 +824,9 @@ button { cursor: pointer; }
   text-transform: uppercase; letter-spacing: 0.3px;
   white-space: nowrap;
   width: fit-content;
-  align-self: flex-start;
-  height: auto;
+  height: fit-content;
+  line-height: 1;
+  vertical-align: middle;
 }
 .badge.pub { background: #d9f0e2; color: var(--green); }
 .badge.draft { background: #fef1d8; color: var(--amber); }
