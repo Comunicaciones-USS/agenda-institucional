@@ -7,7 +7,7 @@ const SRCS = {
   dark: '/escudo-uss-horizontal-azul.svg',
 };
 
-const HEIGHTS = { sm: 28, md: 40, lg: 64, xl: 96 };
+const HEIGHTS = { sm: 40, md: 56, lg: 72, xl: 110 };
 
 export default function Logo({ variant = 'dark', size = 'md', className }) {
   return (

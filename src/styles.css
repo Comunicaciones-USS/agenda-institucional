@@ -97,13 +97,14 @@ button { cursor: pointer; }
 }
 
 .pub-top {
-  padding: 16px 20px 0;
+  padding: 12px 20px 0;
   background: var(--paper);
   position: sticky; top: 0; z-index: 20;
   border-bottom: 1px solid var(--ink-5);
 }
 .pub-top-row {
   display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
   margin-bottom: 10px;
 }
 .icon-btn {
@@ -530,19 +531,20 @@ button { cursor: pointer; }
 .pub-desk-top {
   background: var(--uss-navy);
   color: #fff;
-  padding: 18px 40px;
+  padding: 12px 40px;
   display: flex; align-items: center; gap: 28px;
   position: sticky; top: 0; z-index: 20;
+  min-height: 96px;
 }
 .pub-desk-top .sedes {
-  display: flex; gap: 4px; flex: 1;
+  display: flex; gap: 4px; flex: 1; align-items: center;
 }
 .pub-desk-top .sedes button {
   background: transparent; border: none;
   color: #ffffff99;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: var(--r-sm);
-  font-size: 14px; font-weight: 500;
+  font-size: 15px; font-weight: 500;
   transition: all 0.15s;
 }
 .pub-desk-top .sedes button:hover { color: #fff; background: #ffffff15; }
@@ -551,9 +553,10 @@ button { cursor: pointer; }
   background: #ffffff15;
   border: 1px solid #ffffff22;
   color: #fff;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: 999px;
   width: 240px;
+  font-size: 14px;
 }
 .pub-desk-top .search::placeholder { color: #ffffff99; }
 
@@ -639,7 +642,7 @@ button { cursor: pointer; }
   .admin-side { height: auto; position: static; padding: 12px 0; }
 }
 .admin-side-brand {
-  padding: 0 22px 18px;
+  padding: 4px 22px 20px;
   border-bottom: 1px solid #ffffff1a;
   margin-bottom: 14px;
 }

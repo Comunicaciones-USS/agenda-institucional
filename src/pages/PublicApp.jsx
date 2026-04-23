@@ -216,7 +216,7 @@ function MobileTopSimple({ title, goToAdmin }) {
   return (
     <div className="pub-top">
       <div className="pub-top-row">
-        <Logo variant="dark" size="sm" />
+        <Logo variant="dark" size="md" />
         {goToAdmin && <button className="admin-btn" onClick={goToAdmin} title="Ir al panel admin">Admin</button>}
       </div>
       <h1 style={{ fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--uss-navy)', margin: '6px 0 12px', fontWeight: 600 }}>
@@ -229,7 +229,7 @@ function MobileTopSimple({ title, goToAdmin }) {
 function DesktopTop({ sede, setSede, hideSearch, goToAdmin }) {
   return (
     <div className="pub-desk-top">
-      <Logo variant="light" size="md" />
+      <Logo variant="light" size="lg" />
       <div className="sedes">
         {ALL_SEDES.map((s) => (
           <button key={s} className={sede === s ? 'on' : ''} onClick={() => setSede(s)}>{s}</button>
@@ -251,7 +251,7 @@ function MobileHome({ eventsByDay, selectedDate, setSelectedDate, sede, setSede,
     <>
       <div className="pub-top">
         <div className="pub-top-row">
-          <Logo variant="dark" size="sm" />
+          <Logo variant="dark" size="md" />
           <div className="flex gap-8" style={{ alignItems: 'center' }}>
             {goToAdmin && <button className="admin-btn" onClick={goToAdmin} title="Ir al panel admin">Admin</button>}
             <button className="icon-btn" title="Notificaciones"><Icon n="bell" /></button>

@@ -41,7 +41,7 @@ export default function AdminApp({ onExitToPublic }) {
     <div className="admin">
       <aside className="admin-side">
         <div className="admin-side-brand">
-          <Logo variant="light" size="sm" />
+          <Logo variant="light" size="md" />
           <small>Panel admin</small>
         </div>
         <nav>
