@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Icon from '../components/Icon';
+import Logo from '../components/Logo';
 import { useToast } from '../components/Toast';
 import { DataAPI } from '../lib/data';
 import { addDays, fmtDate, formatRUT, validateEmail, validateRUT, weekStart } from '../lib/utils';
@@ -215,7 +216,7 @@ function MobileTopSimple({ title, goToAdmin }) {
   return (
     <div className="pub-top">
       <div className="pub-top-row">
-        <div className="pub-brand">Agenda<span> USS</span></div>
+        <Logo variant="dark" size="sm" />
         {goToAdmin && <button className="admin-btn" onClick={goToAdmin} title="Ir al panel admin">Admin</button>}
       </div>
       <h1 style={{ fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--uss-navy)', margin: '6px 0 12px', fontWeight: 600 }}>
@@ -228,7 +229,7 @@ function MobileTopSimple({ title, goToAdmin }) {
 function DesktopTop({ sede, setSede, hideSearch, goToAdmin }) {
   return (
     <div className="pub-desk-top">
-      <div className="brand">Agenda USS</div>
+      <Logo variant="light" size="md" />
       <div className="sedes">
         {ALL_SEDES.map((s) => (
           <button key={s} className={sede === s ? 'on' : ''} onClick={() => setSede(s)}>{s}</button>
@@ -250,7 +251,7 @@ function MobileHome({ eventsByDay, selectedDate, setSelectedDate, sede, setSede,
     <>
       <div className="pub-top">
         <div className="pub-top-row">
-          <div className="pub-brand">Agenda<span> USS</span></div>
+          <Logo variant="dark" size="sm" />
           <div className="flex gap-8" style={{ alignItems: 'center' }}>
             {goToAdmin && <button className="admin-btn" onClick={goToAdmin} title="Ir al panel admin">Admin</button>}
             <button className="icon-btn" title="Notificaciones"><Icon n="bell" /></button>

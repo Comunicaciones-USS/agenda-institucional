@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Logo from '../components/Logo';
 
 export default function Splash({ onDone }) {
   const [hide, setHide] = useState(false);
@@ -11,7 +12,7 @@ export default function Splash({ onDone }) {
 
   return (
     <div className={`splash ${hide ? 'hide' : ''}`}>
-      <div className="logo-badge">USS</div>
+      <Logo variant="light" size="xl" />
       <h1>Agenda</h1>
       <div className="subtitle">Institucional</div>
     </div>

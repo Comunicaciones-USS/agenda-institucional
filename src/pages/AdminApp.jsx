@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Icon from '../components/Icon';
+import Logo from '../components/Logo';
 import { useToast } from '../components/Toast';
 import { DataAPI } from '../lib/data';
 import { SUPABASE_URL_PUBLIC } from '../lib/supabase';
@@ -39,7 +40,10 @@ export default function AdminApp({ onExitToPublic }) {
   return (
     <div className="admin">
       <aside className="admin-side">
-        <div className="brand">Agenda USS <small>Panel admin</small></div>
+        <div className="admin-side-brand">
+          <Logo variant="light" size="sm" />
+          <small>Panel admin</small>
+        </div>
         <nav>
           <button className={view === 'dashboard' ? 'on' : ''} onClick={() => setView('dashboard')}><Icon n="chart" />Dashboard</button>
           <button className={view === 'events' ? 'on' : ''} onClick={() => { setView('events'); setEditingId(null); }}><Icon n="cal" />Eventos</button>
@@ -95,7 +99,7 @@ function Login({ onLogin, onExit }) {
   return (
     <div className="login-page">
       <div className="login-brand">
-        <h1>Agenda<br />USS</h1>
+        <Logo variant="light" size="xl" />
         <div className="sub">
           Panel de administración para el área de Comunicaciones. Ingresa la programación semanal y actualízala en tiempo real.
         </div>
